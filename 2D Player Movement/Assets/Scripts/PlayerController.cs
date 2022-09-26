@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 
 {
     public float speed = 5;
+    public float turnSpeed = 1000;
         
     
     // Start is called before the first frame update
@@ -18,6 +19,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
+
+        //transform.Translate(Vector2.up * Time.deltaTime * verticalInput * speed);
         transform.Translate(Vector2.right * Time.deltaTime * horizontalInput * speed);
+
+        transform.Rotate(Vector3.forward, verticalInput * turnSpeed * Time.deltaTime);
     }
 }
