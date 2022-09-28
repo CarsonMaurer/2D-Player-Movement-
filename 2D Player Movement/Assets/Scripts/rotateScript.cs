@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class rotateScript : MonoBehaviour
 
 {
     public float speed = 5;
-    //public float turnSpeed = 1000;
-        
-    
+    public float turnSpeed = 1000;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,9 +20,8 @@ public class PlayerController : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-        transform.Translate(Vector2.up * Time.deltaTime * verticalInput * speed);
-        transform.Translate(Vector2.right * Time.deltaTime * horizontalInput * speed);
+        transform.Translate(Vector3.right * Time.deltaTime * horizontalInput * speed);
 
-        //transform.Rotate(Vector3.forward, verticalInput * turnSpeed * Time.deltaTime);
+        transform.Rotate(Vector3.forward, verticalInput * turnSpeed * Time.deltaTime );
     }
 }
